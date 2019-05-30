@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{% block title %} {% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/public.css') }}">
+</head>
+<body>
+<div class="header">智捷网上电脑商城</div>
+<hr width="100%" />
+<!--显示错误消息-->
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li class="error">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<!--页面内容-->
+{% block content %}
+{% endblock %}
+<div class="footer">
+  <hr  width="100%" />
+  Copyright © 智捷课堂 2008-2018. All Rights Reserved </div>
+</body>
+</html>
